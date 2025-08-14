@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="hunger">Hunger</string>
+    <string name="energie">Energie</string>
+    <string name="tamagotchi_sprite">Tamagotchi_sprite</string>
 </resources>
