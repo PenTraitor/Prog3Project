@@ -2,32 +2,29 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/topBarFragmentTamagotchi"
-        android:name="com.example.myapplication.controller.ui.TopBarFragmentTamagotchi"
+        android:id="@+id/topBarFragmentTicTacToe"
+        android:name="com.example.myapplication.controller.ui.TopBarFragmentTicTacToe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/gameGridFragment"
-        android:name="com.example.myapplication.controller.ui.GameFragmentTamagotchi"
+        android:id="@+id/gameGridFragmentTicTacToe"
+        android:name="com.example.myapplication.controller.ui.GameFragmentTicTacToe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topBarFragmentTamagotchi"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavFragmentTamagotchi"
+        app:layout_constraintTop_toBottomOf="@id/topBarFragmentTicTacToe"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavFragmentTicTacToe"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout="@layout/fragment_game_tamagotchi" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/bottomNavFragmentTamagotchi"
-        android:name="com.example.myapplication.controller.ui.BottomNavFragmentTamagotchi"
+        android:id="@+id/bottomNavFragmentTicTacToe"
+        android:name="com.example.myapplication.controller.ui.BottomNavFragmentTicTacToe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"/>

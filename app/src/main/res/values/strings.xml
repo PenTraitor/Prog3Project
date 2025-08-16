@@ -3,4 +3,9 @@
     <string name="hunger">Hunger</string>
     <string name="energie">Energie</string>
     <string name="tamagotchi_sprite">Tamagotchi_sprite</string>
+    <string name="title_activity_tic_tac_toe">TicTacToeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_numberslider">NumbersliderActivity</string>
 </resources>
