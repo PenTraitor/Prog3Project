@@ -8,8 +8,20 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
+import com.example.myapplication.controller.ui.GameFragmentTamagotchi;
+import com.example.myapplication.controller.ui.TopBarFragmentTamagotchi;
+import com.example.myapplication.model.tamagotchi;
+import android.os.Handler;
+import android.os.Looper;
 
-public class MainActivity extends AppCompatActivity {
+
+public class MainActivity extends AppCompatActivity implements TamagotchiListener{
+
+    private GameFragmentTamagotchi gameFragment;
+    private tamagotchi myTamagotchi = new tamagotchi();
+    private Handler handler = new Handler(Looper.getMainLooper());
+    private final int SATISFACTION_DECREASE = 5; // Wert pro Intervall
+    private final int INTERVAL = 10000; // 10 Sekunden
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,4 +34,42 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+
+    @Override
+    public void onHungerChanged(int newValue) {
+        if (gameFragment != null) {
+            gameFragment.updateHunger(newValue);
+        }
+    }
+
+    @Override
+    public void onHappinessChanged(int newValue) {
+        if (gameFragment != null) {
+            gameFragment.updateHappiness(newValue);
+        }
+    }
+
+    @Override
+    public int getHunger() { return myTamagotchi.getSatisfaction(); }
+
+    @Override
+    public int getEnergy() { return myTamagotchi.getEnergy(); }
+
+    public void feedTamagotchi() {
+        myTamagotchi.feed();
+        updateTopBar();
+    }
+
+    public void restTamagotchi() {
+        myTamagotchi.rest();
+        updateTopBar();
+    }
+
+    private void updateTopBar() {
+        TopBarFragmentTamagotchi topBar = (TopBarFragmentTamagotchi) getSupportFragmentManager()
+                .findFragmentById(R.id.topBarFragmentTamagotchi);
+        if (topBar != null) topBar.updateProgressBars(this);
+    }
+
 }

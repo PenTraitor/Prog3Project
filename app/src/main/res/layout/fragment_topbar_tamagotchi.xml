@@ -4,6 +4,7 @@
     android:id="@+id/topBarContainerTamagotchi"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:baselineAligned="false"
     android:orientation="horizontal"
     android:padding="16dp"
     android:background="@color/gray"
@@ -28,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hunger"
+            android:text="@string/zufriedenheit"
             android:textColor="#000000"
             android:textSize="14sp"
             android:layout_marginTop="4dp"/>
