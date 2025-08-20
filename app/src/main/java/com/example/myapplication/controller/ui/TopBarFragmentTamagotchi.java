@@ -37,7 +37,7 @@ public class TopBarFragmentTamagotchi extends Fragment{
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_topbar_tamagotchi, container, false);
-        progressBar_hunger = view.findViewById(R.id.progressBar_hunger);
+        progressBar_hunger = view.findViewById(R.id.progressBar_satisfaction);
         progressBar_energy = view.findViewById(R.id.progressBar_energy);
 
         // sofort Werte setzen

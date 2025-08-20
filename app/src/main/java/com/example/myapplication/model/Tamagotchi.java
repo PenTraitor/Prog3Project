@@ -1,14 +1,21 @@
 package com.example.myapplication.model;
 
-public class tamagotchi {
+public class Tamagotchi {
     int satisfaction;
     int energy;
     mood emotion;
-
-    public tamagotchi(){
-        this.satisfaction = 100;
-        this.energy = 100;
+    private static Tamagotchi instance;
+    private Tamagotchi() {
+        energy = 100;
+        satisfaction = 100;
         this.emotion = mood.NEUTRAL;
+    }
+
+    public static Tamagotchi getInstance() {
+        if (instance == null) {
+            instance = new Tamagotchi();
+        }
+        return instance;
     }
     public int getSatisfaction(){
         return this.satisfaction;
