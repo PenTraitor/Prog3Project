@@ -1,6 +1,6 @@
 package com.example.myapplication.model;
 
-public enum mood {
+public enum Mood {
     HAPPY,
     SAD,
     NEUTRAL

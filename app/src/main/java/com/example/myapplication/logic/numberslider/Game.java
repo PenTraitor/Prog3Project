@@ -5,10 +5,10 @@ import android.content.Context;
 import com.example.myapplication.database.access.AppDatabase;
 import com.example.myapplication.database.entity.numberslider.play_field;
 
-public class game {
+public class Game {
     public String current_field;
     private final AppDatabase db;
-    public game(Context context) {
+    public Game(Context context) {
         // Always use applicationContext to avoid memory leaks
         this.db = AppDatabase.getInstance(context.getApplicationContext());
     }

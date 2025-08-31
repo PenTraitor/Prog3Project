@@ -1,6 +1,6 @@
 package com.example.myapplication.logic.numberslider;
 
-public class validator {
+public class Validator {
     public boolean gameover(int[][] grid){
         return move_possible(grid, Direction.UP) || move_possible(grid, Direction.LEFT);
     }

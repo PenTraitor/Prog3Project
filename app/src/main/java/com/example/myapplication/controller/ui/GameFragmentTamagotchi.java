@@ -1,34 +1,35 @@
 package com.example.myapplication.controller.ui;
 
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
 import com.example.myapplication.R;
-import com.example.myapplication.model.mood;
+import com.example.myapplication.controller.TamagotchiObserver;
+import com.example.myapplication.controller.HappyAnimation;
+import com.example.myapplication.controller.SadAnimation;
+import com.example.myapplication.controller.NeutralAnimation;
 import com.example.myapplication.model.Tamagotchi;
 
-public class GameFragmentTamagotchi extends Fragment {
+public class GameFragmentTamagotchi extends Fragment implements TamagotchiObserver {
     private ImageView spriteView;
     private Tamagotchi myTamagotchi;
     private final Handler handler = new Handler();
     private final int DECREASE_INTERVAL = 10000;
-    private final int DECREASE_AMOUNT = 5;
 
     public GameFragmentTamagotchi() {}
-    private Runnable decreaseSatisfactionRunnable = new Runnable() {
+
+    private final Runnable decreaseSatisfactionRunnable = new Runnable() {
         @Override
         public void run() {
+            int DECREASE_AMOUNT = 5;
             int newSatisfaction = myTamagotchi.getSatisfaction() - DECREASE_AMOUNT;
             myTamagotchi.setSatisfaction(Math.max(newSatisfaction, 0));
             updateEnergy(myTamagotchi.getEnergy());
@@ -55,44 +56,43 @@ public class GameFragmentTamagotchi extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_tamagotchi, container, false);
         spriteView = view.findViewById(R.id.tamagotchiSprite);
+
         myTamagotchi = Tamagotchi.getInstance();
-        myTamagotchi.updateEmotion();
-        startIdleAnimation(myTamagotchi.getEmotion());
+        Tamagotchi.getInstance().addObserver(this);
+
+        updateSprite(); // direkt beim Start Animation setzen
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Tamagotchi.getInstance().removeObserver(this);
     }
 
     public void updateEnergy(int value) {
         myTamagotchi.setEnergy(value);
-        myTamagotchi.updateEmotion();
-        startIdleAnimation(myTamagotchi.getEmotion());
+        updateSprite();
     }
 
-    public void updateHappiness(int value) {
-        myTamagotchi.setSatisfaction(value);
-        myTamagotchi.updateEmotion();
-        startIdleAnimation(myTamagotchi.getEmotion());
-    }
+    private void updateSprite() {
+        Tamagotchi tamagotchi = Tamagotchi.getInstance();
 
-    private void startIdleAnimation(mood currentMood) {
-        int animRes;
-        switch (currentMood) {
-            case HAPPY:
-                animRes = R.drawable.anim_happy;
-                break;
-            case SAD:
-                animRes = R.drawable.anim_sad;
-                break;
-            default:
-                animRes = R.drawable.anim_neutral;
-                break;
+        // Strategy auswählen
+        if (tamagotchi.getSatisfaction() > 70) {
+            tamagotchi.setAnimationStrategy(new HappyAnimation());
+        } else if (tamagotchi.getSatisfaction() < 30) {
+            tamagotchi.setAnimationStrategy(new SadAnimation());
+        } else {
+            tamagotchi.setAnimationStrategy(new NeutralAnimation());
         }
-        spriteView.setImageResource(animRes);
-        spriteView.post(() -> {
-            AnimationDrawable animation = (AnimationDrawable) spriteView.getDrawable();
-            if (animation != null) {
-                animation.start();
-            }
-        });
+
+        // Strategy ausführen
+        tamagotchi.startIdleAnimation(spriteView);
     }
 
+    @Override
+    public void onTamagotchiChanged(Tamagotchi tamagotchi) {
+        updateSprite();
+    }
 }

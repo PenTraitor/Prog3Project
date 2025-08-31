@@ -1,5 +1,5 @@
 package com.example.myapplication.controller.ui;
-import android.content.Context;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,25 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.R;
-import com.example.myapplication.controller.TamagotchiListener;
+import com.example.myapplication.controller.TamagotchiObserver;
+import com.example.myapplication.model.Tamagotchi;
 
-public class TopBarFragmentTamagotchi extends Fragment{
+public class TopBarFragmentTamagotchi extends Fragment implements TamagotchiObserver {
 
-    public TopBarFragmentTamagotchi(){}
+    private ProgressBar progressbarHunger;
+    private ProgressBar progressbarEnergy;
 
-    private TamagotchiListener listener;
-    private ProgressBar progressBar_hunger;
-    private ProgressBar progressBar_energy;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        if (context instanceof TamagotchiListener) {
-            listener = (TamagotchiListener) context;
-        } else {
-            throw new ClassCastException(context + " must implement TamagotchiListener");
-        }
-    }
+    public TopBarFragmentTamagotchi() {}
 
     @Nullable
     @Override
@@ -37,19 +27,28 @@ public class TopBarFragmentTamagotchi extends Fragment{
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_topbar_tamagotchi, container, false);
-        progressBar_hunger = view.findViewById(R.id.progressBar_satisfaction);
-        progressBar_energy = view.findViewById(R.id.progressBar_energy);
 
-        // sofort Werte setzen
-        if (getActivity() instanceof TamagotchiListener listener) {
-            updateProgressBars(listener);
-        }
+        progressbarHunger = view.findViewById(R.id.progressBar_satisfaction);
+        progressbarEnergy = view.findViewById(R.id.progressBar_energy);
+
+        // Observer registrieren
+        Tamagotchi.getInstance().addObserver(this);
+
+        // Initialwerte
+        onTamagotchiChanged(Tamagotchi.getInstance());
 
         return view;
     }
 
-    public void updateProgressBars(TamagotchiListener listener) {
-        progressBar_hunger.setProgress(listener.getHunger());
-        progressBar_energy.setProgress(listener.getEnergy());
+    @Override
+    public void onTamagotchiChanged(Tamagotchi tamagotchi) {
+        progressbarHunger.setProgress(tamagotchi.getSatisfaction());
+        progressbarEnergy.setProgress(tamagotchi.getEnergy());
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Tamagotchi.getInstance().removeObserver(this);
     }
 }
