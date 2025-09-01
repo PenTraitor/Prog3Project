@@ -1,3 +1,6 @@
+/* Methoden zur Verringenung der Zufriedenheit wurden Mithilfe von KI bearbeitet.
+*  Prompt: */
+
 package com.example.myapplication.controller.ui;
 
 import android.os.Bundle;

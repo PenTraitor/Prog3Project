@@ -1,7 +1,7 @@
 package com.example.myapplication.controller;
+
 import android.graphics.drawable.AnimationDrawable;
 import android.widget.ImageView;
-
 import com.example.myapplication.R;
 
 public class NeutralAnimation implements AnimationStrategy {
