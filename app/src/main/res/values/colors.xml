@@ -20,4 +20,9 @@
     <color name="tile_8192">#776E65</color>
     <color name="tile_16384">#BBADA0</color>
     <color name="tile_32768">#8F7A66</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#EBE8F0</color>
+    <color name="red">#FD0000</color>
+    <color name="blue">#017BFD</color>
+    <color name="green">#27FD01</color>
 </resources>

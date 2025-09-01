@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="30"
+    android:viewportHeight="30">
+
+    <!-- Kopf + Körper -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M6,10 h18 v14 h-18 z" />
+
+    <!-- Linkes Ohr -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M6,6 h6 v4 h-6 z" />
+
+    <!-- Rechtes Ohr -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M18,6 h6 v4 h-6 z" />
+
+    <!-- Linkes Auge -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M10,14 h2 v2 h-2 z" />
+
+    <!-- Rechtes Auge -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M18,14 h2 v2 h-2 z" />
+
+    <!-- Mund -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M13,18 h4 v1 h-4 z" />
+</vector>
