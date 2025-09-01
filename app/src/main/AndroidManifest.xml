@@ -27,6 +27,11 @@
             android:theme="@style/Theme.MyApplication" />
         <activity
             android:name=".controller.MainActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
+            android:name=".controller.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
