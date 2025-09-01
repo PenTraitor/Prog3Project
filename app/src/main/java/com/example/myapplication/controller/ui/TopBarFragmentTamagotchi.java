@@ -5,16 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.example.myapplication.R;
 import com.example.myapplication.controller.TamagotchiObserver;
 import com.example.myapplication.model.Tamagotchi;
 
-public class TopBarFragmentTamagotchi extends Fragment implements TamagotchiObserver {
+public class TopBarFragmentTamagotchi extends Fragment implements TamagotchiObserver{
 
     private ProgressBar progressbarHunger;
     private ProgressBar progressbarEnergy;
@@ -25,15 +23,12 @@ public class TopBarFragmentTamagotchi extends Fragment implements TamagotchiObse
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+                             @Nullable Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_topbar_tamagotchi, container, false);
-
         progressbarHunger = view.findViewById(R.id.progressBar_satisfaction);
         progressbarEnergy = view.findViewById(R.id.progressBar_energy);
-
         Tamagotchi.getInstance().addObserver(this);
         onTamagotchiChanged(Tamagotchi.getInstance());
-
         return view;
     }
 

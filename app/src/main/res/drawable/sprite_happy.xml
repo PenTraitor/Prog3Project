@@ -1,46 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Erstellt unter Zuhilfenahme von KI -->
+<!-- Verwendeter Prompt: Erstelle einen fröhlichen Sprite in XML, der Mametchi aus Tamagotchi ähnelt, bei dem nur path-Tags verwendet werden -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="30dp"
     android:height="30dp"
     android:viewportWidth="30"
     android:viewportHeight="30">
 
-    <!-- Kopf + Körper -->
     <path
         android:fillColor="#FFEB3B"
         android:pathData="M6,10 h18 v14 h-18 z" />
 
-    <!-- Linkes Ohr -->
     <path
         android:fillColor="#000000"
         android:pathData="M6,6 h6 v4 h-6 z" />
 
-    <!-- Rechtes Ohr -->
     <path
         android:fillColor="#000000"
         android:pathData="M18,6 h6 v4 h-6 z" />
 
-    <!-- Linkes Auge -->
     <path
         android:fillColor="#000000"
         android:pathData="M10,14 h2 v2 h-2 z" />
 
-    <!-- Rechtes Auge -->
     <path
         android:fillColor="#000000"
         android:pathData="M18,14 h2 v2 h-2 z" />
 
-    <!-- Mund lächelnd -->
     <path
         android:fillColor="#000000"
         android:pathData="M12,18 Q15,21 18,18" />
 
-    <!-- Grübchen links -->
     <path
         android:fillColor="#FFCC80"
         android:pathData="M11,19 h1 v1 h-1 z" />
 
-    <!-- Grübchen rechts -->
     <path
         android:fillColor="#FFCC80"
         android:pathData="M18,19 h1 v1 h-1 z" />

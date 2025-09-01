@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Erstellt unter Zuhilfenahme von KI -->
+<!-- Verwendeter Prompt: Erstelle einen traurigen Sprite in XML, der Mametchi aus Tamagotchi ähnelt, bei dem nur path-Tags verwendet werden -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="30dp"
     android:height="30dp"
@@ -25,7 +27,6 @@
         android:fillColor="#000000"
         android:pathData="M18,14 h2 v2 h-2 z" />
 
-    <!-- Mund traurig -->
     <path
         android:fillColor="#000000"
         android:pathData="M12,20 Q15,17 18,20" />

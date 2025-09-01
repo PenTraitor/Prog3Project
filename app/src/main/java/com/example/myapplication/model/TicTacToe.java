@@ -1,40 +1,23 @@
+/* Code wurde inspiriert von https://www.geeksforgeeks.org/java/tic-tac-toe-game-in-java/  */
 package com.example.myapplication.model;
-
 import java.util.Arrays;
 
 public class TicTacToe {
-    private String[] playfield = {"1","2","3","4","5","6","7","8","9"};
+    private final String[] playfield = {"1","2","3","4","5","6","7","8","9"};
 
     public String checkWinner() {
-        for (int a = 0; a < 8; a++) {
-            String line = null;
-
-            switch (a) {
-                case 0:
-                    line = playfield[0] + playfield[1] + playfield[2];
-                    break;
-                case 1:
-                    line = playfield[3] + playfield[4] + playfield[5];
-                    break;
-                case 2:
-                    line = playfield[6] + playfield[7] + playfield[8];
-                    break;
-                case 3:
-                    line = playfield[0] + playfield[3] + playfield[6];
-                    break;
-                case 4:
-                    line = playfield[1] + playfield[4] + playfield[7];
-                    break;
-                case 5:
-                    line = playfield[2] + playfield[5] + playfield[8];
-                    break;
-                case 6:
-                    line = playfield[0] + playfield[4] + playfield[8];
-                    break;
-                case 7:
-                    line = playfield[2] + playfield[4] + playfield[6];
-                    break;
-            }
+        for (int i = 0; i < 8; i++) {
+            String line = switch (i) {
+                case 0 -> playfield[0] + playfield[1] + playfield[2];
+                case 1 -> playfield[3] + playfield[4] + playfield[5];
+                case 2 -> playfield[6] + playfield[7] + playfield[8];
+                case 3 -> playfield[0] + playfield[3] + playfield[6];
+                case 4 -> playfield[1] + playfield[4] + playfield[7];
+                case 5 -> playfield[2] + playfield[5] + playfield[8];
+                case 6 -> playfield[0] + playfield[4] + playfield[8];
+                case 7 -> playfield[2] + playfield[4] + playfield[6];
+                default -> null;
+            };
 
             if (line.equals("XXX")) {
                 return "player";
@@ -45,10 +28,10 @@ public class TicTacToe {
             }
         }
 
-        for (int a = 0; a < 9; a++) {
-            if (Arrays.asList(playfield).contains(String.valueOf(a + 1))) {
+        for (int j = 0; j < 9; j++) {
+            if (Arrays.asList(playfield).contains(String.valueOf(j + 1))) {
                 break;
-            } else if (a == 8) {
+            } else if (j == 8) {
                 return "draw";
             }
         }

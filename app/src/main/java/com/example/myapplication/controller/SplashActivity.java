@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
-            }, 2000);
+            }, 3000);
         }
     }
 
