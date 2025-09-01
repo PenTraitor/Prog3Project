@@ -16,6 +16,7 @@ import com.example.myapplication.controller.TamagotchiObserver;
 import com.example.myapplication.controller.HappyAnimation;
 import com.example.myapplication.controller.SadAnimation;
 import com.example.myapplication.controller.NeutralAnimation;
+import com.example.myapplication.model.Mood;
 import com.example.myapplication.model.Tamagotchi;
 
 public class GameFragmentTamagotchi extends Fragment implements TamagotchiObserver {
@@ -60,7 +61,7 @@ public class GameFragmentTamagotchi extends Fragment implements TamagotchiObserv
         myTamagotchi = Tamagotchi.getInstance();
         Tamagotchi.getInstance().addObserver(this);
 
-        updateSprite(); // direkt beim Start Animation setzen
+        updateSprite();
         return view;
     }
 
@@ -78,16 +79,14 @@ public class GameFragmentTamagotchi extends Fragment implements TamagotchiObserv
     private void updateSprite() {
         Tamagotchi tamagotchi = Tamagotchi.getInstance();
 
-        // Strategy auswählen
-        if (tamagotchi.getSatisfaction() > 70) {
+        if (tamagotchi.getEmotion() == Mood.HAPPY) {
             tamagotchi.setAnimationStrategy(new HappyAnimation());
-        } else if (tamagotchi.getSatisfaction() < 30) {
+        } else if (tamagotchi.getEmotion() == Mood.SAD) {
             tamagotchi.setAnimationStrategy(new SadAnimation());
         } else {
             tamagotchi.setAnimationStrategy(new NeutralAnimation());
         }
 
-        // Strategy ausführen
         tamagotchi.startIdleAnimation(spriteView);
     }
 
