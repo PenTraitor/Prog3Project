@@ -49,7 +49,6 @@ public class GameFragmentTicTacToe extends Fragment {
             setAllButtonsEnabled(false);
             new Handler(Looper.getMainLooper()).postDelayed(() -> {
                 handleCpuMove();
-                // Nach CPU-Zug wieder freigeben
                 setAllButtonsEnabled(true);
             }, 750);
         }

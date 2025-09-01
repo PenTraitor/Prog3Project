@@ -1,5 +1,5 @@
 /* Methoden zur Verringenung der Zufriedenheit wurden Mithilfe von KI bearbeitet.
-*  Prompt: */
+*  Prompt: Zeig mir, wie ich in meinem Java-Code einen Wert vom Tamagotchi durchgängig senken kann */
 
 package com.example.myapplication.controller.ui;
 
