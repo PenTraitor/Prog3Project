@@ -31,10 +31,7 @@ public class TopBarFragmentTamagotchi extends Fragment implements TamagotchiObse
         progressbarHunger = view.findViewById(R.id.progressBar_satisfaction);
         progressbarEnergy = view.findViewById(R.id.progressBar_energy);
 
-        // Observer registrieren
         Tamagotchi.getInstance().addObserver(this);
-
-        // Initialwerte
         onTamagotchiChanged(Tamagotchi.getInstance());
 
         return view;

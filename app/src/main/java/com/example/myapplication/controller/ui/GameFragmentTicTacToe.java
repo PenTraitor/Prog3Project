@@ -23,7 +23,7 @@ public class GameFragmentTicTacToe extends Fragment {
     public GameFragmentTicTacToe() {}
 
     private TicTacToe game;
-    private Button[] buttons = new Button[9];
+    private final Button[] buttons = new Button[9];
 
     @Nullable
     @Override
@@ -80,13 +80,12 @@ public class GameFragmentTicTacToe extends Fragment {
 
     private boolean checkGameOver(String result) {
         if (result != null) {
-            String message;
-            switch (result) {
-                case "player": message = "Du hast gewonnen!"; break;
-                case "cpu": message = "CPU hat gewonnen!"; break;
-                case "draw": message = "Unentschieden!"; break;
-                default: message = "";
-            }
+            String message = switch (result) {
+                case "player" -> "Du hast gewonnen!";
+                case "cpu" -> "CPU hat gewonnen!";
+                case "draw" -> "Unentschieden!";
+                default -> "";
+            };
             Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
             resetBoard();
             if (result.equals("player")) {
@@ -103,13 +102,13 @@ public class GameFragmentTicTacToe extends Fragment {
         game = new TicTacToe();
         for (Button b : buttons) {
             b.setText("");
-            b.setEnabled(true); // sicherstellen, dass nach Reset wieder aktiv
+            b.setEnabled(true);
         }
     }
 
     private void setAllButtonsEnabled(boolean enabled) {
         for (Button b : buttons) {
-            if (b.getText().toString().isEmpty()) { // nur freie Felder
+            if (b.getText().toString().isEmpty()) {
                 b.setEnabled(enabled);
             }
         }

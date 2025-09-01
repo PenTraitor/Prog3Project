@@ -10,7 +10,6 @@ public class NumbersliderActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Verknüpft die Activity mit dem Haupt-Layout, das die drei FragmentContainerViews enthält
         setContentView(R.layout.activity_numberslider);
     }
 
