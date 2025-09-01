@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
 import com.example.myapplication.controller.NumbersliderActivity;
 import com.example.myapplication.controller.TicTacToeActivity;
+import com.example.myapplication.visualization.Activity_2048;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavFragmentTamagotchi extends Fragment {
@@ -34,7 +35,7 @@ public class BottomNavFragmentTamagotchi extends Fragment {
                 startActivity(new Intent(getActivity(), TicTacToeActivity.class));
                 return true;
             } else if (id == R.id.nav_2048) {
-                startActivity(new Intent(getActivity(), NumbersliderActivity.class));
+                startActivity(new Intent(getActivity(), Activity_2048.class ));
                 return true;
             }
             return false;

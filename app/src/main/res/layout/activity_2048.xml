@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#EEE">
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -52,10 +53,15 @@
 
         </GridLayout>
 
+
     </LinearLayout>
-
-
 </ScrollView>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/bottomNavFragmentNumberslider"
+        android:name="com.example.myapplication.controller.ui.BottomNavFragmentNumberslider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"/>
     <Button
         android:id="@+id/topRightButton"
         android:layout_width="72dp"
