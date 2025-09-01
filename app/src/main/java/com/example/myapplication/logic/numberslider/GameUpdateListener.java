@@ -1,5 +1,5 @@
 /**
- * enum der Wischrichtungen
+ * Listener zur Kommunikation zwischen View und Model
  *
  * <p>Erstellt von sklinker</p>
  *
@@ -9,9 +9,8 @@
  */
 package com.example.myapplication.logic.numberslider;
 
-public enum Direction {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
+public interface GameUpdateListener {
+  void onGridUpdated(int[][] newGrid);
+  void onWin(int score);
+
 }

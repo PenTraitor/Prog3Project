@@ -1,9 +1,18 @@
+/**
+ * Tabelle der Spielfelds
+ *
+ * <p>Erstellt von sklinker</p>
+ *
+ * @author sklinker
+ * @version 1.0
+ * @since 2025-09-01
+ */
 package com.example.myapplication.database.entity.numberslider;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import org.jspecify.annotations.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.UUID;
 

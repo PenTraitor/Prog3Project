@@ -9,4 +9,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_numberslider">NumbersliderActivity</string>
     <string name="zufriedenheit">Zufriedenheit</string>
+    <string name="title_activity_2048" />
 </resources>

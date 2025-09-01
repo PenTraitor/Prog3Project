@@ -1,3 +1,12 @@
+/**
+ * Speicherung und abfrage von play_field Tabelle
+ *
+ * <p>Erstellt von sklinker</p>
+ *
+ * @author sklinker
+ * @version 1.0
+ * @since 2025-09-01
+ */
 package com.example.myapplication.database.DAO.numberslider;
 
 import androidx.room.Dao;
@@ -26,6 +35,6 @@ public interface PlayFieldDao {
     List<play_field> getAll();
 
     @Query("SELECT * FROM play_field WHERE id = :id LIMIT 1")
-    play_field getById(int id);
+    play_field getById(String id);
 
 }

@@ -17,6 +17,10 @@
             android:exported="false"
             android:label="@string/title_activity_numberslider" />
         <activity
+            android:name="com.example.myapplication.visualization.Activity_2048"
+            android:exported="false"
+            android:label="@string/title_activity_2048" />
+        <activity
             android:name=".controller.TicTacToeActivity"
             android:exported="false"
             android:label="@string/title_activity_tic_tac_toe"

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEE">
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#EEE">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/RootLayout">
+
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="4"
+            android:rowCount="4"
+            android:padding="16dp">
+
+            <!-- Row 1 -->
+            <TextView style="@style/GridTile" android:id="@+id/cell_A_1" android:text="A1" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_A_2" android:text="A2" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_A_3" android:text="A3" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_A_4" android:text="A4" />
+
+            <!-- Row 2 -->
+            <TextView style="@style/GridTile" android:id="@+id/cell_B_1" android:text="B1" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_B_2" android:text="B2" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_B_3" android:text="B3" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_B_4" android:text="B4" />
+
+            <!-- Row 3 -->
+            <TextView style="@style/GridTile" android:id="@+id/cell_C_1" android:text="C1" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_C_2" android:text="C2" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_C_3" android:text="C3" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_C_4" android:text="C4" />
+
+            <!-- Row 4 -->
+            <TextView style="@style/GridTile" android:id="@+id/cell_D_1" android:text="D1" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_D_2" android:text="D2" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_D_3" android:text="D3" />
+            <TextView style="@style/GridTile" android:id="@+id/cell_D_4" android:text="D4" />
+
+        </GridLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
+    <Button
+        android:id="@+id/topRightButton"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:text="↻"
+        android:textSize="24sp"
+        android:layout_gravity="top|end"
+        android:layout_margin="16dp"
+        android:backgroundTint="#F2B179"
+        android:textColor="#FFFFFF"
+        android:contentDescription="Neustart" />
+
+</FrameLayout>
