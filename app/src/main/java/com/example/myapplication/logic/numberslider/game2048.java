@@ -54,8 +54,15 @@ public class game2048 {
 
         executor.execute(() -> {
             Gamestate state = db.gamestateDao().getGamestateWithHighestCount();
-            play_field field = db.playFieldDao().getById(state.current_id);
-            listener.onGridUpdated(field.toGrid());
+            if (state != null) {
+                // Found a Gamestat
+                 play_field field = db.playFieldDao().getById(state.current_id);
+                           listener.onGridUpdated(field.toGrid());
+            } else {
+                // Table empty
+                Start();
+            }
+
 
         });
 
